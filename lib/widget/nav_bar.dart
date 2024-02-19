@@ -2,33 +2,33 @@ import 'package:flutter/material.dart';
 import '../utils/app_images.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({Key? key}) : super(key: key);
+  final int currentIndex;
+  final Function(int) onItemTapped;
+
+  const NavBar({
+    Key? key,
+    required this.currentIndex,
+    required this.onItemTapped,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(), 
-      bottomNavigationBar: bottomNavigationBar(),
-    );
-  }
-
-  Widget bottomNavigationBar() {
     return BottomNavigationBar(
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      backgroundColor: Colors.grey,
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      backgroundColor: Colors.white,
       unselectedItemColor: const Color(0xFF707070),
       selectedIconTheme: const IconThemeData(
         size: 25,
-        color: Colors.white,
+        color: Color(0xFFE8BE13),
       ),
       unselectedIconTheme: const IconThemeData(
         size: 25,
       ),
       type: BottomNavigationBarType.fixed,
-      currentIndex: 0,
+      currentIndex: currentIndex,
       selectedItemColor: const Color(0xFFE8BE13),
-      onTap: (index) {},
+      onTap: onItemTapped,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: ImageIcon(AssetImage(AppImages.home)),
