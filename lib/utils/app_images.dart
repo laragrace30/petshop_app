@@ -7,4 +7,12 @@ class AppImages {
   static const String catalog = "${assetsPath}Frame 314.png";
   static const String cart = "${assetsPath}Frame 310.png";
   static const String profile = "${assetsPath}Frame 312.png";
+  static const String cat1 = "${assetsPath}Cat1.png";
+  static const String cat2 = "${assetsPath}Cat2.png";
+  static const String cat3 = "${assetsPath}Cat3.png";
+  static const String cat4 = "${assetsPath}Cat4.png";
+  static const String cat5 = "${assetsPath}Cat5.png";
+  static const String cat6 = "${assetsPath}Cat6.png";
+  static const String cprofile = "${assetsPath}pet-profile-picture.png";
+
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'cat_details.dart';
 import 'widget/catalog.dart';
 import 'widget/nav_bar.dart';
 
@@ -66,7 +67,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(height: 30),
-            const Catalog(),
+             GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CatDetails()), // Navigate to CatDetails screen
+                );
+              },
+              child: Catalog(),
+            ),
           ],
         ),
       ),

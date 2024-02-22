@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:petshop_app/utils/app_images.dart';
 
 class Catalog extends StatelessWidget {
   const Catalog({super.key});
@@ -13,20 +14,20 @@ class Catalog extends StatelessWidget {
         children: [
           Column(
             children: [
-              _buildCatalogItem('assets/images/Cat1.png'),
+              _buildCatalogItem(AppImages.cat1),
               const SizedBox(height: 15),
-              _buildCatalogItem('assets/images/Cat2.png'),
+              _buildCatalogItem(AppImages.cat3),
               const SizedBox(height: 15),
-              _buildCatalogItem('assets/images/Cat3.png'),
+              _buildCatalogItem(AppImages.cat5),
             ],
           ),
           Column(
             children: [
-              _buildCatalogItem('assets/images/Cat4.png'),
+              _buildCatalogItem(AppImages.cat2),
               const SizedBox(height: 15),
-              _buildCatalogItem('assets/images/Cat5.png'),
+              _buildCatalogItem(AppImages.cat4),
               const SizedBox(height: 15),
-              _buildCatalogItem('assets/images/Cat6.png'),
+              _buildCatalogItem(AppImages.cat6),
             ],
           ),
         ],
@@ -45,8 +46,8 @@ class Catalog extends StatelessWidget {
         boxShadow: const [
           BoxShadow(
             color: Color.fromARGB(62, 158, 158, 158),
-            offset: Offset(0, 5),
-            blurStyle: BlurStyle.inner,
+            offset: Offset(0, 3),
+            blurStyle: BlurStyle.outer,
             blurRadius: 35,
           ),
         ],
