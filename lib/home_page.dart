@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'cat_details.dart';
 import 'widget/catalog.dart';
-import 'widget/nav_bar.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,13 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,38 +41,28 @@ class _HomePageState extends State<HomePage> {
                 color: const Color(0xFFF2F3F2),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
+              child: const Row(
                 children: [
-                  const SizedBox(width: 10),
-                  const Icon(
+                  SizedBox(width: 10),
+                  Icon(
                     Icons.search,
                     color: Colors.black,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10),
                   Text(
                     'Search product or brand',
-                    style: GoogleFonts.poppins(
-                        color: const Color(0xFF7C7C7C), fontSize: 14),
+                    style: TextStyle(
+                      color: Color(0xFF7C7C7C),
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 30),
-             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CatDetails()), // Navigate to CatDetails screen
-                );
-              },
-              child: Catalog(),
-            ),
+            const Catalog(), 
           ],
         ),
-      ),
-      bottomNavigationBar: NavBar(
-        currentIndex: _currentIndex,
-        onItemTapped: _onItemTapped,
       ),
     );
   }

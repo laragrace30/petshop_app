@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home_page.dart';
-
+import 'package:petshop_app/widget/nav_bar.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -106,7 +105,7 @@ class SplashScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomePage(),
+                      builder: (context) => const NavBar(),
                     ),
                   );
                 },
