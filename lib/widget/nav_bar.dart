@@ -11,17 +11,17 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int currentIndex = 0;
-
-  List<Widget> screenList = [
-    Container(height: 200, width: 200, color: Colors.red),
+  int currentIndex = 1; 
+  
+List<Widget> screenList = [
+    Container(height: 200, width: 200, color: Colors.red), // Placeholder for "Home"
     const HomePage(),
     const Cart(),
-    Container(height: 200, width: 200, color: Colors.blue),
+    Container(height: 200, width: 200, color: Colors.blue), // Placeholder for "Profile"
   ];
 
   void onItemTapped(int index) {
-    if (currentIndex != index) {
+    if (index != 0 && index != 3) { 
       setState(() {
         currentIndex = index;
       });
@@ -35,8 +35,8 @@ class _NavBarState extends State<NavBar> {
         child: screenList[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         backgroundColor: Colors.white,
         unselectedItemColor: const Color(0xFF707070),
         selectedIconTheme: const IconThemeData(

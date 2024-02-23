@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'widget/nav_bar.dart';
+import 'cart.dart';
+import 'utils/app_images.dart';
 
 class CatDetails extends StatefulWidget {
   final String imagePath;
@@ -29,7 +30,24 @@ class CatDetails extends StatefulWidget {
 }
 
 class _CatDetailsState extends State<CatDetails> {
+  int currentIndex = 1;
 
+  void onItemTapped(int index) {
+    if (index == 0 || index == 3) {
+      setState(() {
+        currentIndex = 1; 
+      });
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Cart()),
+      );
+    } else {
+      setState(() {
+        currentIndex = index;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +56,10 @@ class _CatDetailsState extends State<CatDetails> {
         children: [
           Container(
             height: 410.47,
-            width:394.47,
+            width: 394.47,
             color: Colors.blue,
-            child: 
-            Image.asset(widget.imagePath, fit: BoxFit.cover)),
+            child: Image.asset(widget.imagePath, fit: BoxFit.cover),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 80),
             child: Center(
@@ -125,18 +143,53 @@ class _CatDetailsState extends State<CatDetails> {
             ),
           ),
           Positioned(
-              top: 630,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text('${widget.description}',
-                    overflow: TextOverflow.clip,
-                    maxLines: 5,
-                    style: GoogleFonts.poppins(
-                        fontSize: 15, color: const Color(0xFFA1A1A1))),
-              )),
+            top: 630,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(widget.description,
+                  overflow: TextOverflow.clip,
+                  maxLines: 5,
+                  style: GoogleFonts.poppins(
+                      fontSize: 15, color: const Color(0xFFA1A1A1))),
+            ),
+          ),
         ],
       ),
-      bottomNavigationBar: const NavBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        backgroundColor: Colors.white,
+        unselectedItemColor: const Color(0xFF707070),
+        selectedIconTheme: const IconThemeData(
+          size: 25,
+          color: Color(0xFFE8BE13),
+        ),
+        unselectedIconTheme: const IconThemeData(
+          size: 25,
+        ),
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        selectedItemColor: const Color(0xFFE8BE13),
+        onTap: onItemTapped,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage(AppImages.home)),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage(AppImages.catalog)),
+            label: 'Catalog',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage(AppImages.cart)),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage(AppImages.profile)),
+            label: 'Profile',
+          ),
+        ],
+      ),
     );
   }
 

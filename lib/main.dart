@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'splash_screen.dart';
+import 'package:petshop_app/splash_screen.dart';
+import 'package:provider/provider.dart';
+
+import 'widget/cat_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Pet Shop',
-       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return ChangeNotifierProvider(
+      create: (context) => CartProvider(),
+      child: const MaterialApp(
+        title: 'Pet Shop',
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }
-
