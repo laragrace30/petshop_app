@@ -4,7 +4,7 @@ import 'package:petshop_app/utils/app_images.dart';
 import 'package:petshop_app/utils/app_string.dart';
 import 'package:provider/provider.dart';
 import '../cat_details.dart';
-import 'cat_provider.dart';
+import 'cart_provider.dart';
 
 class Catalog extends StatelessWidget {
   const Catalog({Key? key}) : super(key: key);

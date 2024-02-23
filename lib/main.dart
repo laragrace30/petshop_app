@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petshop_app/splash_screen.dart';
 import 'package:provider/provider.dart';
-
-import 'widget/cat_provider.dart';
+import 'widget/cart_provider.dart';
 
 void main() {
   runApp(const MyApp());
